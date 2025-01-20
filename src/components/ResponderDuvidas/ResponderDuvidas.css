@@ -1,0 +1,90 @@
+.responder-duvidas {
+    font-family: Arial, sans-serif;
+  }
+  
+  .header-responder-duvidas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 2px solid #dad9d9;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .logo-responderDuvidas{
+    margin-left: 20px;
+    width: 70px;
+    height: 50px;
+  }
+.filtrar-container{
+    margin: 15px;
+}
+
+  .filter-btn {
+    background-color: #3498DB;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+  }
+  
+  .filter-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .subtitle {
+    color: #3498DB;
+    font-size: 20px;
+    margin: 20px 0 10px;
+  }
+  
+  .doubt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .doubt-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .doubt-card.highlight {
+    border-color: #ff4d4f;
+  }
+  
+  .doubt-title {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .doubt-description {
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  
+  .doubt-info {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  .doubt-info p {
+    margin: 5px 0;
+  }
+  
+  .doubt-card-header{
+    display: flex;
+}
+
+section{
+    margin: 20px;
+}
+  
