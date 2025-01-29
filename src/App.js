@@ -7,6 +7,8 @@ import PerfilUsuario from './components/Perfil/Perfil.js';
 import MinhasDuvidas from './components/MinhasDuvidas/MinhasDuvidas.js';
 import './App.css'; 
 import tiraDuvidasLogo from './components/Logo-Tira-Dúvidas-removebg.png';
+import ResponderDuvidas from './components/ResponderDuvidas/ResponderDuvidas.js';
+
 
 function App() {
   const navigate = useNavigate();
@@ -66,6 +68,7 @@ function AppWrapper() {
         <Route path="/cadastroduvidas" element={<CadastroDuvidas />} />
         <Route path="/perfil" element={<PerfilUsuario />} />
         <Route path="/minhas-duvidas" element={<MinhasDuvidas />} />
+        <Route path="/responder-duvidas" element={<ResponderDuvidas />} />
       </Routes>
     </Router>
   );

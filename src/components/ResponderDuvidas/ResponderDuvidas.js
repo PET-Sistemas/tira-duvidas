@@ -1,12 +1,10 @@
-import ReactDOM from "react-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 import "./ResponderDuvidas.css";
 import tiraDuvidasLogo from "../Logo-Tira-Dúvidas-removebg.png";
 import defaultProfilePic from "../default-profile.png";
-import FilterIcon from '../filtrar.png'; 
+import FilterIcon from "../filtrar.png";
 
-
-const ResponderDuvidas = ({ doubts }) => {
+const ResponderDuvidas = ({ doubts = [] }) => {
   const [filtroVisivel, setFiltroVisivel] = useState(false);
   const [filtro, setFiltro] = useState("");
   const [search, setSearch] = useState("");
@@ -27,7 +25,6 @@ const ResponderDuvidas = ({ doubts }) => {
   const aplicarFiltro = () => {
     let result = [...doubts];
 
-    // Filtrar por palavras-chave
     if (search) {
       result = result.filter((doubt) =>
         doubt.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -35,14 +32,12 @@ const ResponderDuvidas = ({ doubts }) => {
       );
     }
 
-    // Filtrar por status
     if (filtro === "respondidas") {
       result = result.filter((doubt) => doubt.status === "respondida");
     } else if (filtro === "naoRespondidas") {
       result = result.filter((doubt) => doubt.status !== "respondida");
     }
 
-    // Ordenar
     if (filtro === "crescente") {
       result.sort((a, b) => a.title.localeCompare(b.title));
     } else if (filtro === "decrescente") {
@@ -63,9 +58,10 @@ const ResponderDuvidas = ({ doubts }) => {
       </header>
 
       <div className="filtrar-container">
-      <button className="filtrar-btn" onClick={toggleFiltroVisivel}> 
-        <img src={FilterIcon} alt="Filter Icon" className="filter-icon-profile" />
-        Filtrar</button>
+        <button className="filtrar-btn" onClick={toggleFiltroVisivel}> 
+          <img src={FilterIcon} alt="Filter Icon" className="filter-icon-profile" />
+          Filtrar
+        </button>
 
         {filtroVisivel && (
           <div className="filtro-container">
@@ -93,9 +89,11 @@ const ResponderDuvidas = ({ doubts }) => {
       <section>
         <h2 className="subtitle">Últimas dúvidas</h2>
         <div className="doubt-list">
-          {filteredDoubts.map((doubt, index) => (
-            <DoubtCard key={index} doubt={doubt} />
-          ))}
+          {filteredDoubts && filteredDoubts.length > 0 ? (
+            filteredDoubts.map((doubt, index) => <DoubtCard key={index} doubt={doubt} />)
+          ) : (
+            <p>Nenhuma dúvida encontrada.</p>
+          )}
         </div>
       </section>
     </div>
@@ -138,34 +136,5 @@ const DoubtCard = ({ doubt }) => {
     </div>
   );
 };
-
-const mockDoubts = [
-  {
-    title: "Dúvida 1",
-    description: "Descrição da dúvida 1",
-    user: "Usuário A",
-    category: "Categoria X",
-    status: "insatisfeito",
-  },
-  {
-    title: "Dúvida 2",
-    description: "Descrição da dúvida 2",
-    user: "Usuário B",
-    category: "Categoria Y",
-    status: "pendente",
-  },
-  {
-    title: "Dúvida 3",
-    description: "Descrição da dúvida 3",
-    user: "Usuário C",
-    category: "Categoria Z",
-    status: "respondida",
-  },
-];
-
-ReactDOM.render(
-  <ResponderDuvidas doubts={mockDoubts} />,
-  document.getElementById("root")
-);
 
 export default ResponderDuvidas;
