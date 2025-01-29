@@ -4,7 +4,50 @@ import tiraDuvidasLogo from "../Logo-Tira-Dúvidas-removebg.png";
 import defaultProfilePic from "../default-profile.png";
 import FilterIcon from "../filtrar.png";
 
-const ResponderDuvidas = ({ doubts = [] }) => {
+const ResponderDuvidas = () => {
+  const doubts = [
+    {
+      title: "Como funciona o cadastro?",
+      description: "Gostaria de saber como criar um cadastro no sistema.",
+      user: "João Silva",
+      category: "Cadastro",
+      status: "respondida",
+      date: "2023-01-10T10:00:00",
+    },
+    {
+      title: "Erro ao acessar minha conta",
+      description: "Estou tentando acessar minha conta, mas aparece uma mensagem de erro.",
+      user: "Maria Oliveira",
+      category: "Conta",
+      status: "pendente",
+      date: "2023-01-12T15:30:00",
+    },
+    {
+      title: "Como redefinir minha senha?",
+      description: "Esqueci minha senha e não sei como redefini-la. Preciso de ajuda.",
+      user: "Carlos Pereira",
+      category: "Segurança",
+      status: "respondida",
+      date: "2023-01-11T09:15:00",
+    },
+    {
+      title: "Aplicativo não abre",
+      description: "O aplicativo fecha sozinho ao tentar abrir. O que posso fazer?",
+      user: "Ana Souza",
+      category: "Erro Técnico",
+      status: "insatisfeito",
+      date: "2023-01-09T18:45:00",
+    },
+    {
+      title: "Qual o prazo para respostas?",
+      description: "Gostaria de saber em quanto tempo as dúvidas são respondidas.",
+      user: "Pedro Santos",
+      category: "Informação Geral",
+      status: "respondida",
+      date: "2023-01-08T14:00:00",
+    },
+  ];
+
   const [filtroVisivel, setFiltroVisivel] = useState(false);
   const [filtro, setFiltro] = useState("");
   const [search, setSearch] = useState("");
@@ -25,6 +68,7 @@ const ResponderDuvidas = ({ doubts = [] }) => {
   const aplicarFiltro = () => {
     let result = [...doubts];
 
+    // Filtrar por busca
     if (search) {
       result = result.filter((doubt) =>
         doubt.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -32,16 +76,18 @@ const ResponderDuvidas = ({ doubts = [] }) => {
       );
     }
 
+    // Filtrar por status
     if (filtro === "respondidas") {
       result = result.filter((doubt) => doubt.status === "respondida");
     } else if (filtro === "naoRespondidas") {
       result = result.filter((doubt) => doubt.status !== "respondida");
     }
 
+    // Ordenar por data de publicação
     if (filtro === "crescente") {
-      result.sort((a, b) => a.title.localeCompare(b.title));
+      result.sort((a, b) => new Date(a.date) - new Date(b.date)); // Mais antigo primeiro
     } else if (filtro === "decrescente") {
-      result.sort((a, b) => b.title.localeCompare(a.title));
+      result.sort((a, b) => new Date(b.date) - new Date(a.date)); // Mais recente primeiro
     }
 
     setFilteredDoubts(result);
@@ -58,7 +104,7 @@ const ResponderDuvidas = ({ doubts = [] }) => {
       </header>
 
       <div className="filtrar-container">
-        <button className="filtrar-btn" onClick={toggleFiltroVisivel}> 
+        <button className="filtrar-btn" onClick={toggleFiltroVisivel}>
           <img src={FilterIcon} alt="Filter Icon" className="filter-icon-profile" />
           Filtrar
         </button>
@@ -74,8 +120,8 @@ const ResponderDuvidas = ({ doubts = [] }) => {
             />
             <select onChange={handleFiltroChange} value={filtro}>
               <option value="">Selecione um filtro</option>
-              <option value="crescente">Crescente</option>
-              <option value="decrescente">Decrescente</option>
+              <option value="crescente">Mais antigos</option>
+              <option value="decrescente">Mais recentes</option>
               <option value="respondidas">Respondidas</option>
               <option value="naoRespondidas">Não Respondidas</option>
             </select>
@@ -128,6 +174,9 @@ const DoubtCard = ({ doubt }) => {
         </p>
         <p>
           <strong>Categoria:</strong> {doubt.category}
+        </p>
+        <p>
+          <strong>Data:</strong> {new Date(doubt.date).toLocaleString()}
         </p>
         <p>
           <strong>Situação:</strong> {doubt.status}
