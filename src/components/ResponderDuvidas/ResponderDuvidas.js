@@ -95,12 +95,17 @@ const ResponderDuvidas = () => {
 
   return (
     <div className="responder-duvidas">
-      <header className="header-responder-duvidas">
-        <img src={tiraDuvidasLogo} alt="Tira Dúvidas Logo" className="logo-responderDuvidas" />
-        <h1 className="cadastro-duvida-title">Responder Dúvidas</h1>
-        <a href="/perfil" className="profile-btn">
-          <img src={defaultProfilePic} alt="icon-profile" className="user-profile-img" />
-        </a>
+      <header className="responder-duvidas-header">
+        <nav className="responder-duvidas-nav">
+        <img src={tiraDuvidasLogo} alt="Tira Dúvidas Logo" className="logo-cadasroDuvidas" />
+
+          <a href="#sobre" className="responder-duvidas-nav-link-sobre">Sobre nós</a>
+          <h2 className="titulo-pagina">Responder Dúvidas</h2>
+
+          <a href="/perfil" className="profile-btn">
+            <img src={defaultProfilePic} alt="icon-profile" className="user-profile-img" />
+          </a>
+        </nav>
       </header>
 
       <div className="filtrar-container">
@@ -113,7 +118,7 @@ const ResponderDuvidas = () => {
           <div className="filtro-container">
             <input
               type="text"
-              placeholder="Buscar por palavras-chave"
+              placeholder="Buscar por palavra"
               value={search}
               onChange={handleSearchChange}
               className="search-input"
@@ -133,7 +138,6 @@ const ResponderDuvidas = () => {
       </div>
 
       <section>
-        <h2 className="subtitle">Últimas dúvidas</h2>
         <div className="doubt-list">
           {filteredDoubts && filteredDoubts.length > 0 ? (
             filteredDoubts.map((doubt, index) => <DoubtCard key={index} doubt={doubt} />)
@@ -164,22 +168,29 @@ const DoubtCard = ({ doubt }) => {
   return (
     <div className={`doubt-card ${getStatusClass(doubt.status)}`}>
       <div className="doubt-card-header">
+        {/* Ícone de status à esquerda */}
         <span className="status-icon">{getStatusIcon(doubt.status)}</span>
-        <h3 className="doubt-title">{doubt.title}</h3>
+        
+        {/* Informações principais no centro */}
+        <div className="doubt-main-info">
+          <h3 className="doubt-title">{doubt.title}</h3> {/* Título acima */}
+          <p className="doubt-description">{doubt.description}</p> {/* Descrição abaixo */}
+          <p className="doubt-situation">
+            <strong>Situação:</strong> {doubt.status}
+          </p>
+        </div>
       </div>
-      <p className="doubt-description">{doubt.description}</p>
-      <div className="doubt-info">
+      
+      {/* Informações adicionais à direita */}
+      <div className="doubt-additional-info">
         <p>
-          <strong>Usuário criação:</strong> {doubt.user}
+          <strong>Usuário:</strong> {doubt.user}
         </p>
         <p>
           <strong>Categoria:</strong> {doubt.category}
         </p>
         <p>
           <strong>Data:</strong> {new Date(doubt.date).toLocaleString()}
-        </p>
-        <p>
-          <strong>Situação:</strong> {doubt.status}
         </p>
       </div>
     </div>
