@@ -5,6 +5,8 @@ import Signup from './components/Cadastrar/Cadastro.js';
 import CadastroDuvidas from './components/CadastrarDuvidas/CadastroDuvidas.js';
 import PerfilUsuario from './components/Perfil/Perfil.js';
 import MinhasDuvidas from './components/MinhasDuvidas/MinhasDuvidas.js';
+import ResponderDuvidas from './components/ResponderDuvidas/ResponderDuvidas.js';
+import PainelQuestionador from './components/PainelQuestionador/PainelQuestionador.js';
 import PainelRespondente from './components/PainelRespondente/PainelRespondente.js';
 import './App.css'; 
 import tiraDuvidasLogo from './components/Logo-Tira-Dúvidas-removebg.png';
@@ -64,9 +66,11 @@ function AppWrapper() {
         <Route path="/" element={<App />} /> {/* Página inicial */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-       <Route path="/cadastroduvidas" element={<CadastroDuvidas />} />
+        <Route path="/cadastroduvidas" element={<CadastroDuvidas />} />
         <Route path="/perfil" element={<PerfilUsuario />} />
         <Route path="/minhas-duvidas" element={<MinhasDuvidas />} />
+        <Route path="/responder-duvidas" element={<ResponderDuvidas />} />
+        <Route path="/painel-questionador" element={<PainelQuestionador />} />
         <Route path="/painel-respondente" element={<PainelRespondente />} />
 
       </Routes>
