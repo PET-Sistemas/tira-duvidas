@@ -9,14 +9,8 @@ function PainelRespondente() {
         <div className="container-respondente">
             <header className="perfil-respondente-header">
                 <img src={tiraDuvidasLogo} alt="Tira Dúvidas Logo" className="logo-painel-respondente" />
-                <nav className="painel-respondente-nav">
-                    <div className="painel-respondente-search-bar">
-                        <input type="text" placeholder="Pesquisar tópicos" className="painel-respondente-search-input" />
-                    </div>
-                </nav>
+                <h2 className="painel-respondente-title">Painel do Usuário</h2>
             </header>
-
-            <h2 className="painel-respondente-title">Painel do Usuário</h2>
 
             <div className="painel-respondente-card">
                 <ul className="painel-respondente-lista">
@@ -28,7 +22,6 @@ function PainelRespondente() {
                     <button className="painel-respondente-sair">Sair</button>
                 </ul>
             </div>
-
         </div>
     );
 }
