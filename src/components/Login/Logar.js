@@ -22,7 +22,7 @@ function Logar() {
             <label className='label-login'>Senha:</label>
             <input type="password" name="password" placeholder="••••••••" />
             {/*<button type="submit">Entrar</button> */}
-            <button onClick={() => navigate('/minhas-duvidas')} className="btn-submit">Entrar</button>
+            <button className="btn-submit" onClick={() => navigate('/minhas-duvidas')} >Entrar</button>
           </form>
           <img src={ufmsLogo} alt="UFMS Logo" className="ufms-logo" /> {/* Logo UFMS */}
         </div>

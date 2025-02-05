@@ -95,7 +95,7 @@ input[type="email"], input[type="password"] {
   font-size: 14px;
 }
 
-button {
+.btn-submit {
   width: calc(100% - 60px); /* Subtrai o padding dos lados para o botão */
   padding: 10px;
   background-color: #3498DB;
@@ -107,7 +107,7 @@ button {
   margin-top: 10px;
 }
 
-button:hover {
+.btn-submit:hover {
   background-color: #1972b5;
 }
 
