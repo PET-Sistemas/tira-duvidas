@@ -10,6 +10,7 @@ import PainelQuestionador from './components/PainelQuestionador/PainelQuestionad
 import PainelRespondente from './components/PainelRespondente/PainelRespondente.js';
 import './App.css'; 
 import tiraDuvidasLogo from './components/Logo-Tira-Dúvidas-removebg.png';
+import MinhasDuvidasDetalhe from './components/MinhasDuvidasDetalhe/MinhasDuvidasDetalhe.js';
 
 function App() {
   const navigate = useNavigate();
@@ -31,13 +32,13 @@ function App() {
       </header>
 
       <div className='container-categories'>
-      <div className="app-home-categories">
-        <button className="app-home-category">Categoria1</button>
-        <button className="app-home-category">Categoria2</button>
-        <button className="app-home-category">Categoria3</button>
-        <button className="app-home-category">Categoria4</button>
-        <button className="app-home-category">Categoria5</button>
-      </div>
+        <div className="app-home-categories">
+          <button className="app-home-category">Categoria1</button>
+          <button className="app-home-category">Categoria2</button>
+          <button className="app-home-category">Categoria3</button>
+          <button className="app-home-category">Categoria4</button>
+          <button className="app-home-category">Categoria5</button>
+        </div>
       </div>
 
       <main id="perguntas-frequentes" className="app-home-faq">
@@ -46,8 +47,9 @@ function App() {
           {[...Array(6)].map((_, i) => (
             <div className="app-home-faq-item" key={i}>
               <div className='Logo-Titulo'>
-              <img src={tiraDuvidasLogo} alt="Ícone da dúvida" className="app-home-faq-img" />
-              <h3 className="app-home-faq-question">Título da Pergunta</h3> </div>
+                <img src={tiraDuvidasLogo} alt="Ícone da dúvida" className="app-home-faq-img" />
+                <h3 className="app-home-faq-question">Título da Pergunta</h3>
+              </div>
               <p className="app-home-faq-description">
                 Descrição da pergunta bem detalhada com muitos detalhes mesmo, que vai ficar ao lado da imagem padrão ou a anexada pelo usuário.
               </p>
@@ -72,7 +74,7 @@ function AppWrapper() {
         <Route path="/responder-duvidas" element={<ResponderDuvidas />} />
         <Route path="/painel-questionador" element={<PainelQuestionador />} />
         <Route path="/painel-respondente" element={<PainelRespondente />} />
-
+        <Route path="/duvida/:id" element={<MinhasDuvidasDetalhe />} /> {/* Detalhes de dúvida */}
       </Routes>
     </Router>
   );

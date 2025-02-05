@@ -38,9 +38,6 @@
       transition: background-color 0.2s ease;
      }
 
-     .minhas-duvidas-nav-link-sobre:hover {
-      background-color: #4ea1fb29;
-    }
     
     .titulo-pagina {
       position: absolute;
@@ -68,7 +65,6 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 16px;
 
   }

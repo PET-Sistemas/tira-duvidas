@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Importando useNavigate
 import "./MinhasDuvidas.css";
 import tiraDuvidasLogo from "../Logo-Tira-Dúvidas-removebg.png";
 import defaultProfilePic from "../default-profile.png";
@@ -10,6 +11,7 @@ function MinhasDuvidas() {
   const [filtro, setFiltro] = useState("");
   const [search, setSearch] = useState("");
   const [filteredDoubts, setFilteredDoubts] = useState([]);
+  const navigate = useNavigate(); // Para navegação programática
 
   useEffect(() => {
     const mockDuvidas = [
@@ -85,6 +87,10 @@ function MinhasDuvidas() {
     setFilteredDoubts(result);
   };
 
+  const handleResponder = (id) => {
+    navigate(`/duvida/${id}`); // Navega para o detalhe da dúvida
+  };
+
   return (
     <div className="minhas-duvidas">
       <header className="minhas-duvidas-header">
@@ -128,7 +134,17 @@ function MinhasDuvidas() {
       <section>
         <div className="doubt-list">
           {filteredDoubts.length > 0 ? (
-            filteredDoubts.map((duvida) => <DoubtCard key={duvida.id} doubt={duvida} />)
+            filteredDoubts.map((duvida) => (
+              <div className="doubt-card-container" key={duvida.id}>
+                <DoubtCard doubt={duvida} />
+                <button
+                  onClick={() => handleResponder(duvida.id)}
+                  className="responder-btn"
+                >
+                  Responder
+                </button>
+              </div>
+            ))
           ) : (
             <p>Nenhuma dúvida encontrada.</p>
           )}
