@@ -95,13 +95,13 @@
     margin: 20px 0 10px;
   }
   
-  .doubt-list {
+  .doubt-list-responder {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
   
-  .doubt-card {
+  .doubt-card-responder {
     display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,21 +112,21 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .doubt-card.highlight {
+  .doubt-card-responder.highlight {
     border-color: #ff4d4f;
   }
   
-  .doubt-title {
+  .doubt-title-responder {
     margin: 0;
     font-size: 18px;
   }
   
-  .doubt-description {
+  .doubt-description-responder {
     margin: 10px 0;
     font-size: 16px;
   }
   
-  .doubt-card-header{
+  .doubt-card-header-responder{
     display: flex;
   align-items: center;
   gap: 16px;
@@ -140,29 +140,29 @@ section{
     margin: 20px;
 }
   
-.doubt-main-info {
+.doubt-main-info-responder {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
-.doubt-main-info h3 {
+.doubt-main-info-responder h3 {
   margin: 0;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px; /* Espaço entre o título e a descrição */
 }
 
-.doubt-main-info p {
+.doubt-main-info-responder p {
   margin: 4px 0;
   font-size: 14px;
 }
 
-.doubt-additional-info {
+.doubt-additional-info-responder {
   text-align: right;
   font-size: 14px;
   color: #555;
 }
 
-.doubt-additional-info p {
+.doubt-additional-info-responder p {
   margin: 4px 0;
 }

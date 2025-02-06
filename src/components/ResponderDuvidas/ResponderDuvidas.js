@@ -138,7 +138,7 @@ const ResponderDuvidas = () => {
       </div>
 
       <section>
-        <div className="doubt-list">
+        <div className="doubt-list-responder">
           {filteredDoubts && filteredDoubts.length > 0 ? (
             filteredDoubts.map((doubt, index) => <DoubtCard key={index} doubt={doubt} />)
           ) : (
@@ -166,23 +166,23 @@ const DoubtCard = ({ doubt }) => {
   };
 
   return (
-    <div className={`doubt-card ${getStatusClass(doubt.status)}`}>
-      <div className="doubt-card-header">
+    <div className={`doubt-card-responder ${getStatusClass(doubt.status)}`}>
+      <div className="doubt-card-header-responder">
         {/* Ícone de status à esquerda */}
         <span className="status-icon">{getStatusIcon(doubt.status)}</span>
         
         {/* Informações principais no centro */}
-        <div className="doubt-main-info">
-          <h3 className="doubt-title">{doubt.title}</h3> {/* Título acima */}
-          <p className="doubt-description">{doubt.description}</p> {/* Descrição abaixo */}
-          <p className="doubt-situation">
+        <div className="doubt-main-info-responder">
+          <h3 className="doubt-title-responder">{doubt.title}</h3> {/* Título acima */}
+          <p className="doubt-description-responder">{doubt.description}</p> {/* Descrição abaixo */}
+          <p className="doubt-situation-responder">
             <strong>Situação:</strong> {doubt.status}
           </p>
         </div>
       </div>
       
       {/* Informações adicionais à direita */}
-      <div className="doubt-additional-info">
+      <div className="doubt-additional-info-responder">
         <p>
           <strong>Usuário:</strong> {doubt.user}
         </p>

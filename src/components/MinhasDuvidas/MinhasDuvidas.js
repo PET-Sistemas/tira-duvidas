@@ -131,18 +131,13 @@ function MinhasDuvidas() {
         )}
       </div>
 
-      <section>
-        <div className="doubt-list">
+      <section className="section-minhas-duvidas">
+        <div className="doubt-list-minhas-duvidas">
           {filteredDoubts.length > 0 ? (
             filteredDoubts.map((duvida) => (
-              <div className="doubt-card-container" key={duvida.id}>
+              <div className="doubt-card-container-minhas-duvidas" key={duvida.id}>
                 <DoubtCard doubt={duvida} />
-                <button
-                  onClick={() => handleResponder(duvida.id)}
-                  className="responder-btn"
-                >
-                  Responder
-                </button>
+                <button onClick={() => handleResponder(duvida.id)} className="responder-btn"> Responder </button>
               </div>
             ))
           ) : (
@@ -170,18 +165,18 @@ const DoubtCard = ({ doubt }) => {
   };
 
   return (
-    <div className={`doubt-card ${getStatusClass(doubt.status)}`}>
-      <div className="doubt-card-header">
+    <div className={`doubt-card-minhas-duvidas ${getStatusClass(doubt.status)}`}>
+      <div className="doubt-card-header-minhas-duvidas">
         <span className="status-icon">{getStatusIcon(doubt.status)}</span>
-        <div className="doubt-main-info">
-          <h3 className="doubt-title">{doubt.title}</h3>
-          <p className="doubt-description">{doubt.description}</p>
-          <p className="doubt-situation">
+        <div className="doubt-main-info-minhas-duvidas">
+          <h3 className="doubt-title-minhas-duvidas">{doubt.title}</h3>
+          <p className="doubt-description-minhas-duvidas">{doubt.description}</p>
+          <p className="doubt-situation-minhas-duvidas">
             <strong>Situação:</strong> {doubt.status}
           </p>
         </div>
       </div>
-      <div className="doubt-additional-info">
+      <div className="doubt-additional-info-minhas-duvidas">
         <p>
           <strong>Categoria:</strong> {doubt.category}
         </p>

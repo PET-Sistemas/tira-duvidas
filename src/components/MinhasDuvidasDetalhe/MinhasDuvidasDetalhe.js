@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import tiraDuvidasLogo from '../Logo-Tira-Dúvidas-removebg.png';
-import './MinhasDuvidasDetalhe.css'; // Adapte conforme necessário
-
+import './MinhasDuvidasDetalhe.css'; 
 const MinhasDuvidasDetalhe = () => {
   const navigate = useNavigate();
   const { id } = useParams(); // Pega o ID da dúvida da URL
@@ -10,11 +9,7 @@ const MinhasDuvidasDetalhe = () => {
   const [duvidaDetalhada, setDuvidaDetalhada] = useState(null);
 
   useEffect(() => {
-    // Simulação de busca pela dúvida com o id
-    // Substitua pela lógica para buscar a dúvida no seu backend ou estado global
     const fetchDuvida = () => {
-      // Aqui você faria uma requisição para buscar os detalhes da dúvida
-      // Exemplo de dados fictícios:
       setDuvidaDetalhada({
         id: id,
         titulo: 'Como faço para usar o React?',
@@ -28,7 +23,7 @@ const MinhasDuvidasDetalhe = () => {
   }, [id]);
 
   const handleVoltar = () => {
-    navigate('/minhas-duvidas'); // Navega de volta para a lista de dúvidas
+    navigate('/minhas-duvidas'); 
   };
 
   if (!duvidaDetalhada) {
