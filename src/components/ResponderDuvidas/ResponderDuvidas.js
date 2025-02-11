@@ -5,6 +5,7 @@ import defaultProfilePic from "../default-profile.png";
 import FilterIcon from "../filtrar.png";
 
 const ResponderDuvidas = () => {
+
   const doubts = [
     {
       title: "Como funciona o cadastro?",
@@ -65,6 +66,7 @@ const ResponderDuvidas = () => {
     setSearch(e.target.value);
   };
 
+    
   const aplicarFiltro = () => {
     let result = [...doubts];
 
@@ -92,8 +94,9 @@ const ResponderDuvidas = () => {
 
     setFilteredDoubts(result);
   };
-
+  
   return (
+    
     <div className="responder-duvidas">
       <header className="responder-duvidas-header">
         <nav className="responder-duvidas-nav">
@@ -165,6 +168,10 @@ const DoubtCard = ({ doubt }) => {
     return "";
   };
 
+  const handleResponder = (id) => {
+    console.log(`Responder dúvida com ID: ${id}`);
+  };
+
   return (
     <div className={`doubt-card-responder ${getStatusClass(doubt.status)}`}>
       <div className="doubt-card-header-responder">
@@ -178,6 +185,7 @@ const DoubtCard = ({ doubt }) => {
           <p className="doubt-situation-responder">
             <strong>Situação:</strong> {doubt.status}
           </p>
+          <button onClick={() => handleResponder(doubt.id)} className="responder-btn"> Responder </button>        
         </div>
       </div>
       

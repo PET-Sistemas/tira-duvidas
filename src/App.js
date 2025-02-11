@@ -12,6 +12,7 @@ import './App.css';
 import tiraDuvidasLogo from './components/Logo-Tira-Dúvidas-removebg.png';
 import MinhasDuvidasDetalhe from './components/MinhasDuvidasDetalhe/MinhasDuvidasDetalhe.js';
 
+
 function App() {
   const navigate = useNavigate();
 

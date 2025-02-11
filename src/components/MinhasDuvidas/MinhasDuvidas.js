@@ -87,10 +87,6 @@ function MinhasDuvidas() {
     setFilteredDoubts(result);
   };
 
-  const handleResponder = (id) => {
-    navigate(`/duvida/${id}`); // Navega para o detalhe da dúvida
-  };
-
   return (
     <div className="minhas-duvidas">
       <header className="minhas-duvidas-header">
@@ -137,7 +133,6 @@ function MinhasDuvidas() {
             filteredDoubts.map((duvida) => (
               <div className="doubt-card-container-minhas-duvidas" key={duvida.id}>
                 <DoubtCard doubt={duvida} />
-                <button onClick={() => handleResponder(duvida.id)} className="responder-btn"> Responder </button>
               </div>
             ))
           ) : (
@@ -150,6 +145,12 @@ function MinhasDuvidas() {
 }
 
 const DoubtCard = ({ doubt }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/duvida/${doubt.id}`, { state: { doubt } });
+  };
+
   const getStatusClass = (status) => {
     if (status === "insatisfeito") return "status-insatisfeito";
     if (status === "pendente") return "status-pendente";
@@ -165,7 +166,11 @@ const DoubtCard = ({ doubt }) => {
   };
 
   return (
-    <div className={`doubt-card-minhas-duvidas ${getStatusClass(doubt.status)}`}>
+    <div
+      className={`doubt-card-minhas-duvidas ${getStatusClass(doubt.status)}`}
+      onClick={handleClick}
+      style={{ cursor: "pointer" }} // Para indicar que o card é clicável
+    >
       <div className="doubt-card-header-minhas-duvidas">
         <span className="status-icon">{getStatusIcon(doubt.status)}</span>
         <div className="doubt-main-info-minhas-duvidas">
@@ -190,5 +195,4 @@ const DoubtCard = ({ doubt }) => {
     </div>
   );
 };
-
 export default MinhasDuvidas;

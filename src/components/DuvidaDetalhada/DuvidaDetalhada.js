@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./MinhasDuvidasDetalhe.css";
+import "./DuvidaDetalhada.css";
 
-function MinhasDuvidasDetalhe() {
+function DuvidaDetalhada() {
   const location = useLocation();
   const navigate = useNavigate();
   const doubt = location.state?.doubt;
@@ -43,4 +43,4 @@ function MinhasDuvidasDetalhe() {
   );
 }
 
-export default MinhasDuvidasDetalhe;
+export default DuvidaDetalhada;
