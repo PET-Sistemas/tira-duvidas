@@ -137,7 +137,9 @@
 }
 
 section{
-    margin: 20px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
   
 .doubt-main-info-responder {
